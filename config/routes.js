@@ -1,14 +1,14 @@
-var customers = require('./../server/controllers/customers.js');
+var Users = require('./../server/controllers/Users.js');
 
 module.exports = function(app) {
-	app.get('/customers', function(req, res) {
-		customers.show(req, res);
+	app.get('/Users', function(req, res) {
+		Users.show(req, res);
 	});
-	app.post('/customers', function(req, res) {
+	app.post('/Users', function(req, res) {
 		console.log('in routes');
-		customers.add(req, res);
+		Users.add(req, res);
 	});
-	app.delete('/customers/:id', function(req, res) {
-		customers.remove(req, res);
+	app.delete('/Users/:id', function(req, res) {
+		Users.remove(req, res);
 	});
 };

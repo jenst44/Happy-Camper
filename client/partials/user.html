@@ -1,0 +1,15 @@
+<div ng-controller="UsersController as UC">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-5">
+			<input type="text" ng-model="UC.new_user.name">
+			<input type="submit" ng-click="UC.adduser()">
+			<p>Filter Customers</p>
+			<input type="text" ng-model="filter_name">
+			<p ng-bind="UC.message"></p>
+			<div ng-repeat="customer in UC.customers | filter:filter_name">
+				<p><span ng-bind="customer.name"></span> <input type="submit" value="Delete" ng-click="UC.removeuser(user._id)"></p>
+			</div>
+		</div>
+	</div>
+</div>

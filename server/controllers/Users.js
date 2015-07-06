@@ -1,47 +1,47 @@
 var mongoose = require('mongoose');
-var Customer = mongoose.model('Customer');
+var User = mongoose.model('User');
 
 module.exports = (function() {
 	return {
 		show: function(req, res) {
-			Customer.find({}, function(err, results) {
+			User.find({}, function(err, results) {
 				if(err) {
 					res.json(err);
 				} else {
 					res.json(results);
 				}
-		   })
+		   });
 		},
 		add: function(req, res) {
 			console.log(req.body);
-			var customer = new Customer(req.body);
-			// Check if Customer is in database
-			Customer.find({name:req.body.name}, function(err, results){
+			var user = new User(req.body);
+			// Check if User is in database
+			User.find({name:req.body.name}, function(err, results){
 				if(!results[0]){
-					customer.save(function(err) {
+					user.save(function(err) {
 						if(err) {
 							res.json(err);
 						}
 						else {
-							res.json({message:'Successfully added a customer'});
+							res.json({message:'Successfully added a user'});
 						}
 
-					})	
+					});	
 				}
 				else {
-					res.json({message:"Customer name already in database"});
+					res.json({message:"User name already in database"});
 				}
-			})
+			});
 		},
 		remove: function(req, res) {
 			console.log(req.params);
-			Customer.remove({_id:req.params.id}, function(err, results) {
+			User.remove({_id:req.params.id}, function(err, results) {
 				if(err){
 					res.json(err);
 				} else {
 					res.json(results);
 				}
-			})
+			});
 		}
-	}
+	};
 })();
