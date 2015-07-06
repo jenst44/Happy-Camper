@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Customers | Store</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/moment/moment.js"></script>
+    <script type="text/javascript" src="js/angular-moment/angular-moment.js"></script>
+    <script type="text/javascript" src="js/modules/module.js"></script>
+	<script type="text/javascript" src="js/controllers/customers.js"></script>
+	<script type="text/javascript" src="js/models/customer.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2"></div>
+				<div ng-app='app'>
+					<a href="#/">Home</a>
+					<div ng-view=""></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

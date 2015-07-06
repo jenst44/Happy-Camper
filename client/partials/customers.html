@@ -1,0 +1,15 @@
+<div ng-controller="CustomersController as CC">
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-5">
+			<input type="text" ng-model="CC.new_customer.name">
+			<input type="submit" ng-click="CC.addcustomer()">
+			<p>Filter Customers</p>
+			<input type="text" ng-model="filter_name">
+			<p ng-bind="CC.message"></p>
+			<div ng-repeat="customer in CC.customers | filter:filter_name">
+				<p><span ng-bind="customer.name"></span> <input type="submit" value="Delete" ng-click="CC.removecustomer(customer._id)"></p>
+			</div>
+		</div>
+	</div>
+</div>
