@@ -22,6 +22,6 @@ app.factory('UserFactory', function($http) {
 			callback(data);
 		});
 	};
-
+	//returns factory
 	return factory;
 });
