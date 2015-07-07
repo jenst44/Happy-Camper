@@ -3,7 +3,7 @@ var app = angular.module('app', ['ngRoute', 'angularMoment']);
 app.config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'partials/customers.html'
+		templateUrl: 'partials/home.html'
 	})
 	.when('/login', {
 		templateUrl: 'partials/login.html'
