@@ -5,6 +5,9 @@ app.config(function($routeProvider) {
 	.when('/', {
 		templateUrl: 'partials/customers.html'
 	})
+	.when('/login', {
+		templateUrl: 'partials/login.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});

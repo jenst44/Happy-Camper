@@ -1,7 +1,7 @@
 app.controller('UsersController', function(UserFactory, $location) {
 	// this becomes that so that we have access to it in the functions
 	var that = this;
-	that.message;
+	that.messages;
 	// Grabs customer list when controller is called
 	UserFactory.getUsers(function(data) {
 		that.users = data;
@@ -19,7 +19,7 @@ app.controller('UsersController', function(UserFactory, $location) {
 				that.customers = data2;
 			});
 			// Should be eiter Error of Success Message
-			that.message = data.message;
+			that.messages = data.messages;
 			that.new_user = {};
 		});
 
@@ -32,7 +32,7 @@ app.controller('UsersController', function(UserFactory, $location) {
 			UserFactory.getCustomers(function(data2) {
 				that.customers = data2;
 			});
-			that.message = data.message;
+			that.messages = data.messages;
 			that.new_user = {};
 		});
 	};
