@@ -6,6 +6,7 @@ var UserSchema = new mongoose.Schema({
 	password: {type:String, required:true},
 	email: {type:String, required:true},
 	phone_number: String,
+	salt: String,
 	trip_ids: [{type: Schema.Types.ObjectId, ref: 'Trip'}],
 	created_at: Date,
 	updated_at: Date

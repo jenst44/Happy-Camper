@@ -1,0 +1,69 @@
+<style>
+	.login-registration-box {
+		margin-top: 40px;
+		padding: 20px;
+		border: 1px solid silver;
+		border-radius: 10px;
+	}
+
+	.error {
+		margin: 20px;
+		color:red;
+	}
+</style>
+<div class="row">
+	<div class="div col-md-1"></div>
+	<div class="col-md-11">
+		<h1 class="text-left">Login & Registration</h1>
+	</div>
+</div>
+<div class="row" ng-controller="LoginController as LC">
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<div class="login-registration-box">
+			<h2>Login</h2>
+			<form>
+				<div class="form-group">
+					<label for="userName">User Name</label>
+					<input type="text" class="form-control" ng-model="LC.login_info.user_name">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" ng-model="LC.login_info.password">
+				</div>
+				<button class="btn btn-primary" ng-click="LC.loginuser()">Login</button>
+			</form>
+			<div class="error" ng-repeat="message in LC.loginmessage">
+				<p ng-bind="message"></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-4">
+		<div class="login-registration-box">
+			<h2>Register</h2>
+			<form>
+				<div class="form-group">
+					<label for="Email">Email</label>
+					<input type="email" class="form-control" ng-model="LC.register_info.email">
+				</div>
+				<div class="form-group">
+					<label for="userName">User Name</label>
+					<input type="text" class="form-control" ng-model="LC.register_info.user_name">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label>
+					<input type="password" class="form-control" ng-model="LC.register_info.password">
+				</div>
+				<div class="form-group">
+					<label for="confirm_password">Confirm Password</label>
+					<input type="password" class="form-control" ng-model="LC.register_info.confirm_password">
+				</div>
+				<button class="btn btn-primary" ng-click="LC.registeruser()">Register</button>
+			</form>
+			<div class="error" ng-repeat="message in LC.messages">
+				<p ng-bind="message"></p>
+			</div>
+		</div>
+	</div>
+</div>
