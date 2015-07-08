@@ -1,54 +1,66 @@
-<div class="container">
+<div class="container" ng-controller="WeatherController as WC">
     <div class="row">
-        <div class="col-md-1">Everest</div>
-        <div class="col-md-9"> </div>
-        <div class="col-md-2 text-right">Count Down</div>
-    </div>
-    <div class="row">
-        <div class="col-md-11"> </div>
-        <div class="col-md-1 text-right">Weather</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <img src="./img/everest_mountain_tops.jpg" alt="">
+        <h1 class="title">Trip Name</h1>
+        <div class="col-md-12 imgHolder">
+            <div class="mainImg">
+                <div class="weatherWidget">
+                    <h3 ng-bind="WC.weather_data.city_name"></h3>
+                    <h1><span ng-bind="WC.weather_data.temp"></span> °F</h1>
+                    <h2 ng-bind="WC.weather_data.description"></h2>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <h3>Trip Information</h3>
-            <ul>
-                <li>Departure:</li>
-                <li>Party of: </li>
-                <li>Contact info:</li>
-                <li>Departure:</li>
-                <li>Party of: </li>
-                <li>Contact info:</li>
-                <li>Departure:</li>
-                <li>Party of: </li>
-                <li>Contact info:</li>
-            </ul>
+        <div class="col-xs-12 col-md-6">
+            <div class="divBackground">
+                <h3>Trip Information</h3>
+                <ul>
+                    <li>Departure:</li>
+                    <li>Party of: </li>
+                    <li>Contact info:</li>
+                    <li>Departure:</li>
+                    <li>Party of: </li>
+                    <li>Contact info:</li>
+                    <li>Departure:</li>
+                    <li>Party of: </li>
+                    <li>Contact info:</li>
+                </ul>
+            </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h3>Message Board</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <div class="divBackground">
+                <h3>Supply/Inventory</h3>
+                <ul>
+                    <li>Food Supplies</li>
+                    <li>Drinking Water</li>
+                    <li>Shelter</li>
+                    <li>Equipment</li>
+                    <li>Waste management</li>
+                    <li>Contact info:</li>
+                    <li>Departure:</li>
+                    <li>Party of: </li>
+                    <li>Contact info:</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-xs-6 col-md-3">
-            <h3>Supply/Inventory</h3>
-            <ul>
-                <li>Food Supplies</li>
-                <li>Drinking Water</li>
-                <li>Shelter</li>
-                <li>Equipment</li>
-                <li>Waste management</li>
-                <li>Contact info:</li>
-                <li>Departure:</li>
-                <li>Party of: </li>
-                <li>Contact info:</li>
-            </ul>
+    </div>
+    <div class="row">
+        <div class="col-xs-24 col-md-12">
+            <div class="divBackground">
+                <h2>Message board</h2>
+                <div class="row" ng-controller="MessagesController as MC">
+                    <div class="col-md-8">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="Message">Message:</label>
+                            <input type="text" class="form-control" ng-model="MC.new_message.message">
+                        </div>
+                            <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Submit</button>
+                        </form>  
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

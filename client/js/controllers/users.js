@@ -1,7 +1,14 @@
-app.controller('UsersController', function(UserFactory, $location) {
+app.controller('UsersController', function(UserFactory, $location, $rootScope) {
 	// this becomes that so that we have access to it in the functions
 	var that = this;
 	that.messages;
+	if(!$rootScope.user) {
+		$location.path('/login');
+	}
+	else {
+		console.log($rootScope.user.user_name)
+		that.user_name = $rootScope.user.user_name;
+	}
 	// Grabs customer list when controller is called
 	UserFactory.getUsers(function(data) {
 		that.users = data;

@@ -48,6 +48,7 @@ app.controller('LoginController', function(LoginFactory, $location, $rootScope) 
 				that.login_info = {};
 				if(data.message == "Login Successful"){
 					$rootScope.user = data;
+					$location.path('/dashboard');
 				}
 			});
 		}

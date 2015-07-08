@@ -1,8 +1,8 @@
 app.factory('tripFactory', function($http) {
 	var factory = {};
-	var users = [];
+	var trips = [];
 
-	factory.addUser = function(info, callback) {
+	factory.addTrip = function(info, callback) {
 		$http.post('/users', info).success(function(data){
 			console.log(data);
 			callback(data);
