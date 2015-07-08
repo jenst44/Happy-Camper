@@ -1,6 +1,10 @@
 *{
     /*outline: 1px dashed red;*/
 }
+.container {
+	padding-top: 20px;
+  	/*background-color: transparent;*/
+}
 .img_box{
     width: 145px;
     height: 145px;

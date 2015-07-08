@@ -17,6 +17,9 @@ app.config(function($routeProvider) {
 	.when('/trip', {
 		templateUrl: 'partials/trip.html'
 	})
+	.when('/new_trip', {
+		templateUrl: 'partials/new_trip.html'
+	})
 	.otherwise({
 		redirectTo: '/'
 	});
