@@ -47,16 +47,16 @@
     </div>
     <div class="row">
         <div class="col-xs-24 col-md-12">
-            <div class="divBackground" ng-controller="messages">
+            <div class="divBackground">
                 <h2>Message board</h2>
-                <div class="row">
+                <div class="row" ng-controller="MessagesController as MC">
                     <div class="col-md-8">
                         <form role="form">
                         <div class="form-group">
-                            <label for="email">Message:</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="Message">Message:</label>
+                            <input type="text" class="form-control" ng-model="MC.new_message.message">
                         </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Submit</button>
                         </form>  
                     </div>
                 </div>
