@@ -1,7 +1,6 @@
 app.controller('LoginController', function(LoginFactory, $location, $rootScope) {
 	// this becomes that so that we have access to it in the functions
 	var that = this;
-	console.log($location);
 	that.messages = [];
 	console.log('Here');
 	that.registeruser = function() {
