@@ -24,12 +24,13 @@ module.exports = (function() {
 				if(!results[0]){
 					User.find({email:req.body.email}, function(err, results){
 						if(!results[0]) {
-							user.save(function(err) {
+							user.save(function(err, results) {
 								if(err) {
 									res.json({message:err});
 								}
 								else {
-									res.json({message:'Successfully added a user'});
+									results.message = "Successfully Added A User";
+									res.json(results);
 								}
 							});	
 						} else {

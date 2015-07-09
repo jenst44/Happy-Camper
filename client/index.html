@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app='app'>
 <head>
+
     <meta charset="UTF-8">
     <title>Happy Campers</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -17,11 +18,13 @@
     <script type="text/javascript" src="js/controllers/users.js"></script>
     <script type="text/javascript" src="js/controllers/trips.js"></script>
     <script type="text/javascript" src="js/controllers/login_and_registration.js"></script>
-    <script type="text/javascript" src="js/controllers/users.js"></script>
+    <script type="text/javascript" src="js/controllers/comments.js"></script>
     <script type="text/javascript" src="js/models/login.js"></script>
     <script type="text/javascript" src="js/models/trip.js"></script>
     <script type="text/javascript" src="js/models/user.js"></script>
     <script type="text/javascript" src="js/models/weather.js"></script>
+    <script type="text/javascript" src="js/models/message.js"></script>
+    <script type="text/javascript" src="js/models/comment.js"></script>
   <style>
     
     html {
@@ -42,9 +45,25 @@
     position: static;
     overflow: scroll;
     }
+    /*video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+    }*/
   </style>
 </head>
 <body>
+    <!-- <video autoplay loop id="bgvid">
+        <source src="vid/bgvid.mp4" type="video/mp4">
+    </video> -->
     <div class="mainContainer">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">

@@ -5,29 +5,53 @@ app.controller('TripsController', function(tripFactory, $location) {
 	// $location.path('/users'); THIS IS HOW YOU REDIRECT TO OTHER PARTIALS
 
 	that.addTrip = function() {
-		that.messages = [];
-		if(that.newtrip){
-			var now = Date.now();
-			create_at = new Date(now);
+		that.errors = [];
+
+		// if(that.newtrip){
+		// 	var now = Date.now();
+		// 	create_at = new Date(now);
+		// }
+		// var schedule = new Date(that.newtrip.date)
+		// console.log(create_at.getTime());
+		// console.log(schedule.getTime());
+		// console.log(that.newtrip);
+		// console.log("testing");
+
+		if(!that.newtrip.name){
+			that.errors.push("You need to have a trip name.");
 		}
-		var schedule = new Date(that.newtrip.date)
-		console.log(create_at.getTime());
-		console.log(schedule.getTime());
-		console.log(that.newtrip);
-		var time = getTime(that.newtrip.date - that.newtrip.create_at);
-		console.log(time);
+		if(!that.newtrip.zipcode){
+			that.errors.push("You need to know where you are going.");
+		}
+		if(!that.newtrip.date){
+			that.errors.push("Please set a date for the trip.");
+		}
+		if(!that.newtrip.contact){
+			that.errors.push("Please provide contact information.");
+		}
+		if(that.errors.length !== 0){
+			$location.path('/new_trip');
+		} else {
+			
+		}
+		// 	var now = Date.now();
+		// 	that.newtrip.create_at = new Date(now);
+		// }
+		// console.log(that.newtrip);
+		// var time = getTime(that.newtrip.date - that.newtrip.create_at);
+		// console.log(time);
 		// Resest error caused by adding the same customer to the database
-		if(that.new_user){
-			that.new_user.created_at = Date.now();
-		}
-		UserFactory.addUser(that.new_user, function(data) {
-			UserFactory.getCustomers(function(data2) {
-				that.customers = data2;
-			});
-			// Should be eiter Error of Success Message
-			that.messages = data.messages;
-			that.new_user = {};
-		});
+		// if(that.new_user){
+		// 	that.new_user.created_at = Date.now();
+		// }
+		// UserFactory.addUser(that.new_user, function(data) {
+		// 	UserFactory.getCustomers(function(data2) {
+		// 		that.customers = data2;
+		// 	});
+		// 	// Should be eiter Error of Success Message
+		// 	that.messages = data.messages;
+		// 	that.new_user = {};
+		// });
 
 	};
 

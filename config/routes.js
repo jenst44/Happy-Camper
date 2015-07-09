@@ -1,4 +1,6 @@
 var Users = require('./../server/controllers/Users.js');
+var Trips = require('./../server/controllers/Trips.js');
+var Messages = require('./../server/controllers/Messages.js');
 
 module.exports = function(app) {
 	app.get('/users', function(req, res) {
@@ -12,5 +14,20 @@ module.exports = function(app) {
 	});
 	app.post('/login', function(req, res) {
 		Users.loginValidate(req, res);
+	});
+	app.get('/messages', function(req, res) {
+		Messages.show(req, res);
+	});
+	app.post('/messages', function(req, res) {
+		Messages.add(req, res);
+	});
+	app.delete('/messages/:id', function(req, res) {
+		Messages.remove(req, res);
+	});
+	app.post('/comments', function(req, res) {
+		Messages.addComment(req, res);
+	});
+	app.delete('/comments/:message_id/:comment_id', function(req, res) {
+		Messages.removeComment(req, res);
 	});
 };

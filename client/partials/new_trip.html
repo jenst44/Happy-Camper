@@ -1,5 +1,8 @@
 <div class="container" ng-controller="TripsController as TC">
 	<h1>Add New Trip</h1>
+	<div ng-repeat="error in TC.errors">
+		<p ng-bind="error" style="color:red"></p>
+	</div>
 	<form>
 		<div class="form-group">
 			<label for="tripname">Name:</label>
