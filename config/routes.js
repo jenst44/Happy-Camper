@@ -1,4 +1,5 @@
 var Users = require('./../server/controllers/Users.js');
+var Trips = require('./../server/controllers/Trips.js');
 
 module.exports = function(app) {
 	app.get('/users', function(req, res) {
