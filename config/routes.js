@@ -20,7 +20,13 @@ module.exports = function(app) {
 	app.post('/messages', function(req, res) {
 		Messages.add(req, res);
 	});
+	app.delete('/messages/:id', function(req, res) {
+		Messages.remove(req, res);
+	});
 	app.post('/comments', function(req, res) {
 		Messages.addComment(req, res);
+	});
+	app.delete('/comments/:message_id/:comment_id', function(req, res) {
+		Messages.removeComment(req, res);
 	});
 };

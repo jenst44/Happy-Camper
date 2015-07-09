@@ -12,16 +12,23 @@
         margin-bottom: 30px;
     }
 
+    #weatherImg {
+        margin: auto;
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+
 </style>
 <div class="container" ng-controller="WeatherController as WC">
     <div class="row">
         <h1 class="title">Trip Name</h1>
         <div class="col-md-12 imgHolder">
             <div class="mainImg">
-                <div class="weatherWidget">
-                    <h3 ng-bind="WC.weather_data.city_name"></h3>
-                    <h1><span ng-bind="WC.weather_data.temp"></span> °F</h1>
-                    <h2 ng-bind="WC.weather_data.description"></h2>
+                <div class="weatherWidget text-center">
+                    <h3 id="weatherCity" ng-bind="WC.weather_data.city_name"></h3>
+                    <img id="weatherImg" src="http://openweathermap.org/img/w/{{WC.weather_data.icon}}.png" alt="">
+                    <h3><span ng-bind="WC.weather_data.temp"></span> °F</h3>
+                    <h3 ng-bind="WC.weather_data.description"></h3>
                 </div>
             </div>
         </div>
@@ -76,16 +83,16 @@
                                     <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Post</button>
                             </form> 
                         </div>
-                        <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: 'created_at'">
+                        <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: '-created_at'">
                             <div>
-                                <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-warning" ng-click="deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
+                                <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-warning" ng-click="MC.deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
                                 <h3 ng-bind="message.message"></h3>
                             </div>
                             <div class="row commentInput">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-11" ng-controller="CommentsController as CC">
                                     <div class="commentBox" ng-repeat="comment in message.comments">
-                                        <h4><span ng-bind="comment.user_name"></span> <span ng-bind="comment.created_at | date"></span> <button class="btn btn-warning" ng-if="MC.activeUser == comment.user_name">Delete</button></h4>
+                                        <h4><span ng-bind="comment.user_name"></span> <span ng-bind="comment.created_at | date"></span> <button class="btn btn-warning" ng-click="CC.deletecomment(message._id, comment)" ng-if="MC.activeUser == comment.user_name">Delete</button></h4>
                                         <h3 ng-bind="comment.comment"></h3>
                                     </div>
                                     <form role="form">

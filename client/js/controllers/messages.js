@@ -34,7 +34,11 @@ app.controller('MessagesController', function(MessageFactory, $location, $rootSc
 		});
 	}
 
-	that.deletemessage = function() {
-		
+	that.deletemessage = function(id) {
+		MessageFactory.deleteMessage(id, function(data) {
+			MessageFactory.showMessages(function(data) {
+				that.messages = data;
+			});
+		})
 	}
 });

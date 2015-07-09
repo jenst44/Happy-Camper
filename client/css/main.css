@@ -38,6 +38,11 @@ img{
 	padding: 50px;
 }
 
+    #weatherCity {
+        display: inline-block;
+    }
+
+
 .weatherWidget {
     background-color: rgba(210, 60, 10, 0.6);
     display: inline-block;

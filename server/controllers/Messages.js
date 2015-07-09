@@ -38,9 +38,19 @@ module.exports = (function() {
 			});
 		},
 
+		removeComment: function(req,res) {
+			console.log(req.params.comment_id);
+			console.log('herenow');
+			Message.remove({_id:req.params.message_id, comment:req.params.comment_id}, function(err, results) {
+				if(err){
+					res.json(err);
+				} else {
+					res.json(results);
+				}
+			});
+		},
+
 		addComment: function(req, res) {
-			console.log(req.body);
-			console.log('now');
 			Message.findOne({_id:req.body.message_id}, function(err, results){
 				if(err) {
 					res.json(err);
@@ -49,8 +59,6 @@ module.exports = (function() {
 					console.log(results.comments);
 					var NewComment = req.body;
 					var updatedComments = results.comments.push(NewComment);
-					console.log(results);
-					console.log('after');
 					results.save(function(err, results) {
 						if(err) {
 							res.json(err);
