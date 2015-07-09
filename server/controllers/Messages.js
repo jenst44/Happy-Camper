@@ -41,7 +41,7 @@ module.exports = (function() {
 		removeComment: function(req,res) {
 			console.log(req.params.comment_id);
 			console.log('herenow');
-			Message.remove({_id:req.params.message_id, comment:req.params.comment_id}, function(err, results) {
+			Message.update({_id:req.params.message_id}, {$pull: {comments: {_id: req.params.comment_id}}}, function(err, results) {
 				if(err){
 					res.json(err);
 				} else {

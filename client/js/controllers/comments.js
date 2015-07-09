@@ -13,11 +13,10 @@ app.controller('CommentsController', function(MessageFactory, $location, $rootSc
 		});
 	}
 
-	that.deletecomment = function(message_id, comment_id) {
-		console.log(message_id);
-		console.log(comment_id);
-		MessageFactory.deleteComment(message_id, comment_id, function(data) {
-			
+	that.deletecomment = function(message_id, comment_id, callback) {
+		// console.log(comment_id._id);
+		MessageFactory.deleteComment(message_id, comment_id._id, function(data) {
+			callback();
 		})
 	}
 });

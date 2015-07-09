@@ -85,14 +85,14 @@
                         </div>
                         <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: '-created_at'">
                             <div>
-                                <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-warning" ng-click="MC.deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
+                                <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-danger" ng-click="MC.deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
                                 <h3 ng-bind="message.message"></h3>
                             </div>
                             <div class="row commentInput">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-11" ng-controller="CommentsController as CC">
                                     <div class="commentBox" ng-repeat="comment in message.comments">
-                                        <h4><span ng-bind="comment.user_name"></span> <span ng-bind="comment.created_at | date"></span> <button class="btn btn-warning" ng-click="CC.deletecomment(message._id, comment)" ng-if="MC.activeUser == comment.user_name">Delete</button></h4>
+                                        <h4><span ng-bind="comment.user_name"></span> <span ng-bind="comment.created_at | date"></span> <button class="btn btn-danger" ng-click="CC.deletecomment(message._id, comment, MC.showmessages)" ng-if="MC.activeUser == comment.user_name">Delete</button></h4>
                                         <h3 ng-bind="comment.comment"></h3>
                                     </div>
                                     <form role="form">
