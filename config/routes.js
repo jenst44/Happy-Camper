@@ -1,4 +1,5 @@
 var Users = require('./../server/controllers/Users.js');
+var Messages = require('./../server/controllers/Messages.js');
 
 module.exports = function(app) {
 	app.get('/users', function(req, res) {
@@ -12,5 +13,14 @@ module.exports = function(app) {
 	});
 	app.post('/login', function(req, res) {
 		Users.loginValidate(req, res);
+	});
+	app.get('/messages', function(req, res) {
+		Messages.show(req, res);
+	});
+	app.post('/messages', function(req, res) {
+		Messages.add(req, res);
+	});
+	app.post('/comments', function(req, res) {
+		Messages.addComment(req, res);
 	});
 };

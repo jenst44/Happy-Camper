@@ -2,7 +2,6 @@ app.controller('LoginController', function(LoginFactory, $location, $rootScope) 
 	// this becomes that so that we have access to it in the functions
 	var that = this;
 	that.messages = [];
-	console.log('Here');
 	that.registeruser = function() {
 		that.messages = [];
 		that.register_info;
@@ -26,9 +25,12 @@ app.controller('LoginController', function(LoginFactory, $location, $rootScope) 
 				that.register_info.created_at = Date.now();
 				that.register_info.updated_at = Date.now();
 				LoginFactory.addUser(that.register_info, function(data) {
-					console.log(data.message);
+					$rootScope.user = data;
 					that.messages.push(data.message);
 					that.register_info = {};
+					if(data.user_name){
+						$location.path('/dashboard');
+					}
 				});
 			}
 		}

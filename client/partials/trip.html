@@ -1,3 +1,18 @@
+<style>
+    .commentInput {
+        margin-top: 20px;
+    }
+
+    .messageTitle {
+        margin-bottom: 40px;
+    }
+
+    .commentBox {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+</style>
 <div class="container" ng-controller="WeatherController as WC">
     <div class="row">
         <h1 class="title">Trip Name</h1>
@@ -47,17 +62,42 @@
     </div>
     <div class="row">
         <div class="col-xs-24 col-md-12">
-            <div class="divBackground">
-                <h2>Message board</h2>
+            <div>
                 <div class="row" ng-controller="MessagesController as MC">
-                    <div class="col-md-8">
-                        <form role="form">
-                        <div class="form-group">
-                            <label for="Message">Message:</label>
-                            <input type="text" class="form-control" ng-model="MC.new_message.message">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="divBackground">
+                            <h2 class="messageTitle">Message Board</h2>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="Message">Post Message:</label>
+                                    <input type="text" class="form-control" ng-model="MC.new_message.message">
+                                </div>
+                                    <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Post</button>
+                            </form> 
                         </div>
-                            <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Submit</button>
-                        </form>  
+                        <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: 'created_at'">
+                            <div>
+                                <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-warning" ng-click="deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
+                                <h3 ng-bind="message.message"></h3>
+                            </div>
+                            <div class="row commentInput">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-11" ng-controller="CommentsController as CC">
+                                    <div class="commentBox" ng-repeat="comment in message.comments">
+                                        <h4><span ng-bind="comment.user_name"></span> <span ng-bind="comment.created_at | date"></span> <button class="btn btn-warning" ng-if="MC.activeUser == comment.user_name">Delete</button></h4>
+                                        <h3 ng-bind="comment.comment"></h3>
+                                    </div>
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="Comment">Post Comment:</label>
+                                            <input type="text" class="form-control" ng-model="CC.new_comment.comment">
+                                        </div>
+                                            <button type="submit" ng-click="CC.addcomment(message._id, MC.showmessages)" class="btn btn-primary">Comment</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </div>
