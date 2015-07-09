@@ -1,4 +1,5 @@
 var Users = require('./../server/controllers/Users.js');
+var Trips = require('./../server/controllers/Trips.js');
 var Messages = require('./../server/controllers/Messages.js');
 
 module.exports = function(app) {

@@ -1,12 +1,12 @@
 {
-	"name": "discussion_board",
-	"version": "0.0.1",
-	"dependencies": {
-		"express": "latest",
-		"mongoose": "latest",
-		"body-parser": "latest",
-		"moment": "latest",
-		"angular-moment": "latest",
-		"bcrypt": "latest"
-	}
+  "name": "discussion_board",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular-moment": "latest",
+    "bcrypt": "latest",
+    "body-parser": "^1.13.2",
+    "express": "latest",
+    "moment": "latest",
+    "mongoose": "latest"
+  }
 }
