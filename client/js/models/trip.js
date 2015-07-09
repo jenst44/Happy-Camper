@@ -1,9 +1,10 @@
-app.factory('tripFactory', function($http) {
+app.factory('TripFactory', function($http) {
 	var factory = {};
 	var trips = [];
 
-	factory.addTrip = function(info, callback) {
-		$http.post('/users', info).success(function(data){
+	factory.addTrip = function(tripinfo, callback) {
+		// console.log("in addTrips");
+		$http.post('/trips', tripinfo).success(function(data){
 			console.log(data);
 			callback(data);
 		});
