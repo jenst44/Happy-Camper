@@ -12,7 +12,6 @@ app.controller('TripsController', function(TripFactory, $rootScope, $location) {
 	var getTrips = function(){
 		TripFactory.getTrips(function(data){
 			that.trips = data;
-			console.log(that.trips);
 		});
 	};
 

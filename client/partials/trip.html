@@ -19,8 +19,8 @@
     }
 
 </style>
-<div class="container" ng-controller="WeatherController as WC">
-    <div class="row" ng-controller="TripsController as TC">
+<div class="container" ng-controller="TripsController as TC">
+    <div class="row" ng-controller="WeatherController as WC">
         <div class="col-xs-2 col-lg-1"></div>
         <div class="col-xs-8 col-lg-10 imgHolder">
             <h1 ng-bind="TC.trip.name"></h1>
@@ -95,7 +95,7 @@
                                     <button type="submit" ng-click="MC.addmessage()" class="btn btn-primary">Post</button>
                             </form> 
                         </div>
-                        <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: '-created_at'">
+                        <div class="messageBox divBackground" ng-repeat="message in MC.messages | orderBy: '-created_at'" ng-if="message.trip_id == TC.trip._id">
                             <div>
                                 <h4><span ng-bind="message.user_name"></span> <span ng-bind="message.created_at | date"></span> <button class="btn btn-danger" ng-click="MC.deletemessage(message._id)" ng-if="MC.activeUser == message.user_name">Delete</button></h4>
                                 <h3 ng-bind="message.message"></h3>

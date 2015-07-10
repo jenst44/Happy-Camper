@@ -9,7 +9,7 @@ var CommentSchema = new mongoose.Schema ({
 });
 
 var MessageSchema = new mongoose.Schema({
-	trip_id: {type:Number},
+	trip_id: {type:String},
 	user_name: {type:String, required:true},
 	message: {type:String, required:true},
 	comments: [CommentSchema],

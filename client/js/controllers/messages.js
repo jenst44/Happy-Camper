@@ -14,11 +14,11 @@ app.controller('MessagesController', function(MessageFactory, $location, $rootSc
 	}
 
 	that.addmessage = function() {
-		console.log(that.new_message.message);
-		console.log($rootScope.user.user_name);
 		that.new_message.user_name = $rootScope.user.user_name;
 		that.new_message.created_at = Date.now();
 		that.new_message.updated_at = Date.now();
+		that.new_message.trip_id = $rootScope.trip._id;
+		console.log(that.new_message.trip_id);
 		MessageFactory.addMessage(that.new_message, function(data) {
 			MessageFactory.showMessages(function(data) {
 				that.messages = data;
