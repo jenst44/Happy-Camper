@@ -25,10 +25,10 @@
         <div class="col-md-12 imgHolder">
             <div class="mainImg">
                 <div class="weatherWidget text-center">
-                    <h3 id="weatherCity" ng-bind="WC.weather_data.city_name"></h3>
+                    <h4 id="weatherCity" ng-bind="WC.weather_data.city_name"></h4>
+                    <h3 id="weatherTemp"><span ng-bind="WC.weather_data.temp"></span> °F</h3>
+                    <h5 ng-bind="WC.weather_data.description"></h5>
                     <img id="weatherImg" src="http://openweathermap.org/img/w/{{WC.weather_data.icon}}.png" alt="">
-                    <h3><span ng-bind="WC.weather_data.temp"></span> °F</h3>
-                    <h3 ng-bind="WC.weather_data.description"></h3>
                 </div>
             </div>
         </div>

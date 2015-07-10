@@ -1,5 +1,6 @@
 *{
     color: black;
+    font-family: serif;
 }
 .container {
 	/*padding-top: 20px;*/
@@ -40,20 +41,30 @@ img{
 
     #weatherCity {
         display: inline-block;
+        color:lightblue;
     }
 
 
 .weatherWidget {
     background-color: rgba(20, 150, 200, .6);
     display: inline-block;
-    padding: 15px 40px;
+    padding: 15px 20px;
     border-radius: 5px;
-    color:white;
+    color:lightblue;
     font-family: sans-serif;
 }
 
+    .weatherWidget h5 {
+        display: inline-block;
+    }
+
+    #weatherTemp {
+        padding: 0 40px 20px 40px;
+        border-bottom: 1px solid silver;
+    }
+
     .weatherWidget span {
-        color:white;
+        color:lightblue;
     }
 
 .imgHolder {
