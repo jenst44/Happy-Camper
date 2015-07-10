@@ -42,7 +42,7 @@ app.controller('TripsController', function(TripFactory, $rootScope, $location) {
 			TripFactory.addTrip(that.newtrip, function() {});
 		}
 		that.newtrip = {};
-		$location.path('/new_trip');
+		$location.path('/home');
 	};
 
 	that.showTrip = function(tripInfo) {

@@ -47,21 +47,20 @@
     }
 
     .header {
-        padding-top: 5px;
         background-color: rgba(20, 150, 200, .9);
         position: fixed;
         z-index:2000; 
-        width:110%;
+        width:102%;
     }
 
     .header li,h4 {
         display: inline-block;
         color:white;
-        margin-right: 30px;
+        margin-right: 15px;
     }
 
     .partialView {
-        margin-top: 60px;
+        margin-top: 50px;
     }
 
     .headerImg {
@@ -74,23 +73,20 @@
 </head>
 <body>
     <div class="mainContainer">
-        <div class="row header">
-            <div class="col-md-1 col-sm-2"></div>
-            <div class="col-md-4 col-sm-8">
+        <div class="row header navbar navbar-inverse">
+            <div class="col-xs-12 col-sm-6 text-left">
                 <ul>
-                    <li><a href="#/"><h4>Home</h4></a></li>
+                    <li class="navbar-header"><a href="#/home"><h4>Home</h4></a></li>
                     <!-- <li><h4>|</h4></li> -->
                     <li><a href="#/dashboard"><h4>Your Trips</h4></a></li>
                     <!-- <li><h4>|</h4></li> -->
                     <li><a href="#/new_trip"><h4>New Trip</h4></a></li>
-                    <li><a href="#/trip"><h4>Trip</h4></a></li>
                 </ul>
             </div>
-            <div class="col-md-1 text-right">
+            <div class="col-sm-1 hidden-xs text-left">
                 <img class="headerImg" src="/img/tent-clipart1.png" alt="">
             </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-3 text-right">
+            <div class="col-sm-5 hidden-xs text-right">
                 <a href="#/login"><h4>Login & Registration</h4></a>
             </div>    
         </div>

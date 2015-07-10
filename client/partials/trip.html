@@ -21,9 +21,9 @@
 </style>
 <div class="container" ng-controller="WeatherController as WC">
     <div class="row" ng-controller="TripsController as TC">
-        <h1 ng-bind="TC.trip.name"></h1>
-        <!-- <h1 class="title">Trip Name</h1> -->
-        <div class="col-md-12 imgHolder">
+        <div class="col-xs-2 col-lg-1"></div>
+        <div class="col-xs-8 col-lg-10 imgHolder">
+            <h1 ng-bind="TC.trip.name"></h1>
             <div class="mainImg">
                 <style>
                     .mainImg {
@@ -45,7 +45,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-sm-1"></div>
+        <div class="col-xs-12 col-sm-5">
             <div class="divBackground">
                 <h3>Trip Information</h3>
                 <ul>
@@ -61,7 +62,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6">
+        <div class="col-xs-12 col-md-5">
             <div class="divBackground">
                 <h3>Supply/Inventory</h3>
                 <ul>

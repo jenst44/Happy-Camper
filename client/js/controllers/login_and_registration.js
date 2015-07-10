@@ -29,7 +29,7 @@ app.controller('LoginController', function(LoginFactory, $location, $rootScope) 
 					that.messages.push(data.message);
 					that.register_info = {};
 					if(data.user_name){
-						$location.path('/dashboard');
+						$location.path('/home');
 					}
 				});
 			}
@@ -50,7 +50,7 @@ app.controller('LoginController', function(LoginFactory, $location, $rootScope) 
 				that.login_info = {};
 				if(data.message == "Login Successful"){
 					$rootScope.user = data;
-					$location.path('/dashboard');
+					$location.path('/home');
 				}
 			});
 		}
