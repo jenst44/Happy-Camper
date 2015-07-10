@@ -20,10 +20,21 @@
 
 </style>
 <div class="container" ng-controller="WeatherController as WC">
-    <div class="row">
-        <h1 class="title">Trip Name</h1>
+    <div class="row" ng-controller="TripsController as TC">
+        <h1 ng-bind="TC.trip.name"></h1>
+        <!-- <h1 class="title">Trip Name</h1> -->
         <div class="col-md-12 imgHolder">
             <div class="mainImg">
+                <style>
+                    .mainImg {
+                        background: url("{{TC.trip.imgurl}}") no-repeat center center fixed;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        height: 60vh;
+                        width:100%;
+                        padding: 50px;
+                    }
+                </style>
                 <div class="weatherWidget text-center">
                     <h3 id="weatherCity" ng-bind="WC.weather_data.city_name"></h3>
                     <img id="weatherImg" src="http://openweathermap.org/img/w/{{WC.weather_data.icon}}.png" alt="">
