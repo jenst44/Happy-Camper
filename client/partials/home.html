@@ -1,17 +1,38 @@
+<style>
+    .tripImg {
+        height: 20vh;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        padding-top:20px;
+        border-radius:5%;
+    }
+
+    .tripImg h2 {
+        font-family: sans-serif;
+        color:white;
+    }
+
+</style>
 <div class="container">
     <h1 class="title text-center">Welcome Campers</h1>
     <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-md-12">
             <div class="row">
                 <div class="col-md-12 col-sm-24">
                     <h2 class="text-center">Trips</h2>
                 </div>
             </div>
             <div class="row" ng-controller="TripsController as TC">
-                <div class="col-md-12 col-sm-24" ng-repeat="trip in TC.">
-                    <div ng-style="'background-image: 'url('+ TC.trip.url +')'">
-                        
+                <div class="col-md-12 col-sm-24">
+                    <div class="row">
+                        <div ng-repeat="trip in TC.trips | orderBy : '-created_at'" class="col-md-3 col-sm-6 text-center">
+                            <div class="tripImg" ng-style="{'background-image': 'url({{trip.imgurl}})'}">
+                                <h2 ng-bind="trip.name"></h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
