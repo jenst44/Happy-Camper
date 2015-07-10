@@ -30,14 +30,14 @@ img{
 	margin: 20px;
 }
 
-.mainImg {
+/*.mainImg {
 	background: url("/img/everest_mountain_tops.jpg") no-repeat center center fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
     height: 60vh;
 	width:100%;
 	padding: 50px;
-}
+}*/
 
     #weatherCity {
         display: inline-block;
