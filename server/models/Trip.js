@@ -2,14 +2,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TripSchema = new mongoose.Schema({
-	user_name: {type:String, required:true},
-	password: {type:String, required:true},
-	email: {type:String, required:true},
-	phone_number: String,
-	salt: String,
-	trip_ids: [{type: Schema.Types.ObjectId, ref: 'Trip'}],
-	created_at: Date,
-	updated_at: Date
+	_user: {type: Schema.ObjectId, ref: 'User'},
+	name: {type:String, required:true},
+	date: {type:Number, required:true},
+	zipcode: {type:Number, required:true},
+	contact: {type:String, required:true},
+	created_at: {type:Number, required:true},
+	imgurl: {type:String}
 });
 
 mongoose.model('Trip', TripSchema);

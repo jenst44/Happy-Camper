@@ -4,7 +4,7 @@ var Trip = mongoose.model('Trip');
 module.exports = (function() {
 	return {
 		show: function(req, res) {
-			User.find({}, function(err, results) {
+			Trip.find({}, function(err, results) {
 				if(err) {
 					res.json(err);
 				} else {
@@ -12,33 +12,14 @@ module.exports = (function() {
 				}
 		   });
 		},
-		add: function(req, res) {
-			console.log(req.body);
-			req.body['salt'] = bcrypt.genSaltSync(10);
-			req.body.password = bcrypt.hashSync(req.body.password, req.body.salt);
-			console.log(req.body);
-			var user = new User(req.body);
-			// Check if User is in database
-			User.find({user_name:req.body.user_name}, function(err, results){
-				if(!results[0]){
-					User.find({email:req.body.email}, function(err, results){
-						if(!results[0]) {
-							user.save(function(err) {
-								if(err) {
-									res.json({message:err});
-								}
-								else {
-									res.json({message:'Successfully added a user'});
-								}
-							});	
-						} else {
-							res.json({message:'Email Already in database'});
-						}
-					});
-				}
-				else {
-					res.json({message:"User name already in database"});
-				}
+		addtrip: function(req, res) {
+			var trip = new Trip(req.body);
+			console.log(trip);
+			trip.save(function(err){
+				if(err)
+					res.json({status:false, err:err});
+				else
+					res.json({status:true});
 			});
 		},
 		loginValidate: function(req, res) {
