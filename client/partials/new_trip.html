@@ -22,10 +22,15 @@
 			<input type="text" class="form-control" id="contactinfo" ng-model="TC.newtrip.contact" placeholder="Phone/Email">
 		</div>
 		<div class="form-group">
+			<label for="image">Image:</label>
+			<input type="text" class="form-control" id="image" ng-model="TC.newtrip.imgurl" placeholder="Image URL">
+			<p>Enter image URL</p>
+		</div>
+		<!-- <div class="form-group">
 			<label for="imgfile">Image:</label>
 			<input type="file" id="imgfile">
 			<p class="help-block">Image file may not exceed 2MB.</p>
-		</div>
+		</div> -->
 		<button type="submit" class="btn btn-primary" ng-click="TC.addTrip()">Create</button>
 	</form>
 </div>

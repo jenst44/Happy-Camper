@@ -1,19 +1,17 @@
 <div class="container" ng-controller="UsersController as UC">
     <h1 class="title"><span ng-bind="UC.user_name"></span>'s Trips</h1>
-    <div>
-        <div class="row current_trip" >
+    <div ng-controller="TripsController as TC">
+        <div class="row current_header">
             <div class="col-md-3"><h2>Current Trips</h2></div>
-            <div class="img_box col-md-1"><a href="#"><img src="./img/acadia_thumb.png" alt=""></a></div>
-            <div class="space col-md-1"></div>
-            <div class="img_box col-md-1"><a href="#"><img src="./img/white_mountain_thumb.png" alt=""></a></div>
-            <div class="space col-md-1"></div>
-            <div class="img_box col-md-1"><a href="#"><img src="./img/green_mountain_thumb.png" alt=""></a></div>
-            <div class="space col-md-1"></div>
-            <div class="img_box col-md-1"><a href="#"><img src="./img/pine_grove_thumb.png" alt=""></a></div>
-            <div class="space col-md-1"></div>
-            <div class="img_box col-md-1"><a href="#"><img src="./img/yosemite_thumb.png" alt=""></a></div>
         </div>
-        <div class="row">
+        <div class="row current_trip" ng-repeat="trip in TC.trips">
+            <div class="col-md-3 tripimg"><a href="#"><img ng-src="{{trip.imgurl}}" alt=""></a></div>
+            <!-- <div class="col-md-3"><a href="#"><img src="./img/white_mountain_thumb.png" alt=""></a></div>
+            <div class="col-md-3"><a href="#"><img src="./img/green_mountain_thumb.png" alt=""></a></div>
+            <div class="col-md-3"><a href="#"><img src="./img/pine_grove_thumb.png" alt=""></a></div>
+            <div class="col-md-3"><a href="#"><img src="./img/yosemite_thumb.png" alt=""></a></div> -->
+        </div>
+        <!-- <div class="row">
             <div class="col-md-2"></div>
             <div class="space col-md-1"></div>
             <div class="img_text col-md-1 text-center">Acadia</div>
@@ -25,7 +23,7 @@
             <div class="img_text col-md-1 text-center">Pine Grove Furnace</div>
             <div class="space col-md-1"></div>
             <div class="img_text col-md-1 text-center">Yosemite</div>
-        </div>
+        </div> -->
         <div class="row past_trip" >
             <div class="col-md-3"><h2>Past Trips</h2></div>
             <div class="img_box col-md-1"><a href="#"><img src="./img/acadia_thumb.png" alt=""></a></div>

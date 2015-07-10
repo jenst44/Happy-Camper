@@ -30,4 +30,11 @@ module.exports = function(app) {
 	app.delete('/comments/:message_id/:comment_id', function(req, res) {
 		Messages.removeComment(req, res);
 	});
+
+	app.get('/trips', function(req, res) {
+		Trips.show(req, res);
+	});
+	app.post('/trips', function(req, res) {
+		Trips.addtrip(req, res);
+	});
 };
