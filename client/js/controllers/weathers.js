@@ -4,7 +4,7 @@ app.controller('WeatherController', function(WeatherFactory, $location, $rootSco
 	that.messages = [];
 	that.weather_data = {};
 
-	WeatherFactory.show(function(data) {
+	WeatherFactory.show($rootScope.trip.weather, function(data) {
 		console.log(data);
 		that.weather_data.city_name = data.city.name;
 		that.weather_data.description = data.list[0].weather[0].description;
