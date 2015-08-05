@@ -14,6 +14,8 @@ require('./config/routes.js')(app);
 
 app.use(express.static(path.join(__dirname, './client')));
 
-app.listen(8888, function() {
-	console.log('Orders on 8888');
-});
+// app.listen(8888, function() {
+// 	console.log('Orders on 8888');
+// });
+app.set('port', (process.env.PORT || 8000));
+var server = app.listen(app.get('port'));
