@@ -1,15 +1,43 @@
-<div ng-controller="UsersController as UC">
-	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-5">
-			<input type="text" ng-model="UC.new_user.name">
-			<input type="submit" ng-click="UC.adduser()">
-			<p>Filter Customers</p>
-			<input type="text" ng-model="filter_name">
-			<p ng-bind="UC.message"></p>
-			<div ng-repeat="customer in UC.customers | filter:filter_name">
-				<p><span ng-bind="customer.name"></span> <input type="submit" value="Delete" ng-click="UC.removeuser(user._id)"></p>
-			</div>
-		</div>
-	</div>
+<style>
+    .tripImg {
+        height: 25vh;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        padding-top:20px;
+        border-radius:5%;
+        cursor: pointer;
+    }
+
+    .tripImg h2 {
+        font-family: sans-serif;
+        color:white;
+    }
+
+</style>
+<div class="container">
+    <h1 class="title text-center">Welcome Campers</h1>
+    <div class="row">
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Trips</h2>
+                </div>
+            </div>
+            <div class="row" ng-controller="TripsController as TC">
+                <div class="col-xs-2 col-md-2"></div>
+                <div class="col-xs-10 col-md-10">
+                    <div class="row">
+                        <div ng-repeat="trip in TC.trips | orderBy : '-created_at'" class="col-xs-4 text-center">
+                            <div class="tripImg" ng-style="{'background-image': 'url({{trip.imgurl}})'}" ng-click="TC.showTrip(trip)">
+                                <h2 ng-bind="trip.name"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

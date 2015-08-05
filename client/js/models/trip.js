@@ -14,10 +14,13 @@ app.factory('TripFactory', function($http) {
 			callback(data);
 		});
 	};
-	// factory.checkLogin = function(info, callback) {
-	// 	$http.post('/login', info).success(function(data){
-	// 		callback(data);
-	// 	});
-	// }
+	
+	factory.addUser = function(user, callback) {
+		$http.post('/trips/update', user).success(function(data){
+			console.log(data);
+			callback(data);
+		});
+	}
+
 	return factory;
 });

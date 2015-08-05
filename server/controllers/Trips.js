@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Trip = mongoose.model('Trip');
+var User = mongoose.model('User');
 
 module.exports = (function() {
 	return {
@@ -15,11 +16,51 @@ module.exports = (function() {
 		addtrip: function(req, res) {
 			var trip = new Trip(req.body);
 			console.log(trip);
+			trip._user.push(req.body.user);
 			trip.save(function(err){
 				if(err)
 					res.json({status:false, err:err});
 				else
 					res.json({status:true});
+			});
+		},
+		adduser: function(req, res) {
+			console.log(req.body.user_id);
+			User.find({user_name: req.body.user_id}, function(err, results) {
+				if(err){
+					res.json({message:'Error in Query'});
+				}
+				else if(results == 0){
+					res.json({message:'User Name not found'});
+				}
+				else {
+					console.log('right here right now');
+					console.log(results);
+					id = results[0]._id;
+					Trip.find({_id: req.body.trip._id}, function(err, results){
+						if(err){
+							res.json({message:'Error in trip Query'});
+						}
+						else {
+							for(i=0; i<results[0]._user.length; i++){
+								if(String(results[0]._user[i]) == String(id)){
+									console.log('im here');
+									res.json({message:'User Already in Group'});
+									return false;
+								}
+							}
+							results[0]._user.push(id);
+							results[0].save(function(err){
+								if(err){
+									res.json({message:'Error in save Query'});
+								}
+								else {
+									res.json({message:'Success!'})
+								}
+							});
+						}
+					});
+				}
 			});
 		},
 		loginValidate: function(req, res) {

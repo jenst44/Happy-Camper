@@ -1,34 +1,43 @@
 <style>
-    .tripImg{
+    .tripImg {
         height: 25vh;
         background-size: 100% 100%;
         background-repeat: no-repeat;
-        margin: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        padding-top:20px;
+        border-radius:5%;
         cursor: pointer;
     }
-</style>
 
-<div class="container" ng-controller="UsersController as UC">
-    <h1 class="title"><span ng-bind="UC.user_name"></span>'s Trips</h1>
-    <div ng-controller="TripsController as TC">
-        <div class="row current_header">
-            <div class="col-md-3"><h2>Current Trips</h2></div>
-        </div>
-        <div class="row current_trip">
-            <!-- <div class="col-md-3 tripimg"><a href="#"><img ng-src="{{trip.imgurl}}" alt=""></a></div> -->
-            <!-- <img class="col-md-3" ng-src="{{trip.imgurl}}" alt=""> -->
-            <div class="col-md-3 tripImg" ng-repeat="trip in TC.trips" ng-style="{'background-image': 'url({{trip.imgurl}})'}" ng-click="TC.showTrip(trip)">
+    .tripImg h2 {
+        font-family: sans-serif;
+        color:white;
+    }
+
+</style>
+<div class="container">
+    <h1 class="title text-center">Welcome Campers</h1>
+    <div class="row">
+        <!-- <div class="col-md-1"></div> -->
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Trips</h2>
+                </div>
             </div>
-        </div>
-        <div class="row past_header">
-            <div class="col-md-3"><h2>Past Trips</h2></div>
-        </div>
-        <div class="row past_trip" >
-            <div class="col-md-3"><a href="#"><img src="./img/acadia_thumb.png" alt=""></a></div>
-            <div class="col-md-3"><a href="#"><img src="./img/white_mountain_thumb.png" alt=""></a></div>
-            <div class="col-md-3"><a href="#"><img src="./img/green_mountain_thumb.png" alt=""></a></div>
-            <div class="col-md-3"><a href="#"><img src="./img/pine_grove_thumb.png" alt=""></a></div>
-            <div class="col-md-3"><a href="#"><img src="./img/yosemite_thumb.png" alt=""></a></div>
+            <div class="row" ng-controller="TripsController as TC">
+                <div class="col-xs-2 col-md-2"></div>
+                <div class="col-xs-10 col-md-10">
+                    <div class="row">
+                        <div ng-repeat="trip in TC.trips | filter : user.id | orderBy : '-created_at'" class="col-xs-4 text-center">
+                            <div class="tripImg" ng-style="{'background-image': 'url({{trip.imgurl}})'}" ng-click="TC.showTrip(trip)">
+                                <h2 ng-bind="trip.name"></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

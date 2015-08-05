@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var TripSchema = new mongoose.Schema({
-	_user: {type: Schema.ObjectId, ref: 'User'},
+	_user: [{type: Schema.ObjectId, ref: 'User'}],
 	name: {type:String, required:true},
 	date: {type:Number, required:true},
 	city: {type:String, required:true},

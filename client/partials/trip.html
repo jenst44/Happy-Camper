@@ -50,15 +50,10 @@
             <div class="divBackground">
                 <h3>Trip Information</h3>
                 <ul>
-                    <li>Departure:</li>
-                    <li>Party of: </li>
-                    <li>Contact info:</li>
-                    <li>Departure:</li>
-                    <li>Party of: </li>
-                    <li>Contact info:</li>
-                    <li>Departure:</li>
-                    <li>Party of: </li>
-                    <li>Contact info:</li>
+                    <li>City: <span ng-bind="trip.city"></span></li>
+                    <li>Departure: <span ng-bind="trip.date | date"></span></li>
+                    <li>Party of: <span ng-bind="trip.count"></span></li>
+                    <li>Contact info: <span ng-bind="trip.contact"></span></li>
                 </ul>
             </div>
         </div>
@@ -76,6 +71,24 @@
                     <li>Party of: </li>
                     <li>Contact info:</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-repeat="user in TC.trip._user">
+        <div ng-if="user == TC.user.id" class="row">
+            <div class="col-xs-3"></div>
+            <div class="col-xs-5">
+                <div class="divBackground">
+                    <h3>Add a User to the trip!</h3>
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="Message">User Name:</label>
+                            <input type="text" class="form-control" ng-model="TC.add_user.user_id">
+                        </div>
+                        <button type="submit" ng-click="TC.addUser(trip)" class="btn btn-success">Add!</button>
+                        <p ng-bind="TC.message"></p>
+                    </form>  
+                </div>
             </div>
         </div>
     </div>
