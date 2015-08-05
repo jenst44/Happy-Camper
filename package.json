@@ -10,6 +10,7 @@
     "body-parser": "^1.13.2",
     "express": "latest",
     "moment": "latest",
-    "mongoose": "latest"
+    "mongoose": "latest",
+    "angular": "latest"
   }
 }
