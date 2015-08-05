@@ -38,5 +38,8 @@ module.exports = function(app) {
 	});
 	app.post('/trips/update', function(req, res) {
 		Trips.adduser(req, res);
-	})
+	});
+	app.get('/weather/:city', function(req, res) {
+		Trips.weather(req, res);
+	});
 };

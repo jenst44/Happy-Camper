@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Trip = mongoose.model('Trip');
 var User = mongoose.model('User');
+var request = require('request');
 
 module.exports = (function() {
 	return {
@@ -89,6 +90,24 @@ module.exports = (function() {
 					res.json(results);
 				}
 			});
+		},
+		weather: function(req, res){
+			var options = {
+				url: "http://api.openweathermap.org/data/2.5/forecast?q="+req.params.city+",us&mode=json&cnt=5&units=imperial&APPID=c1cc9d142bd3d306226d1e3f8d125cad",
+				headers: {
+					'User-Agent': 'request'
+				}
+			}
+			function callback(error, response, body){
+				if(!error && response.statusCode == 200) {
+					var data = JSON.parse(body);
+					res.json(data);
+				} else {
+					console.log(error);
+					res.json({'error': 'error'})
+				}
+			}
+			request(options, callback);
 		}
 	};
 })();

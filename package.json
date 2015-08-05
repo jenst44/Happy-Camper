@@ -5,12 +5,13 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "angular": "latest",
     "angular-moment": "latest",
     "bcrypt": "latest",
     "body-parser": "^1.13.2",
     "express": "latest",
     "moment": "latest",
     "mongoose": "latest",
-    "angular": "latest"
+    "request": "^2.60.0"
   }
 }
