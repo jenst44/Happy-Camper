@@ -1,7 +1,7 @@
 {
-  "name": "angular",
+  "name": "angular-route",
   "version": "1.4.3",
-  "description": "HTML enhanced for web apps",
+  "description": "AngularJS router module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +14,7 @@
     "angular",
     "framework",
     "browser",
+    "router",
     "client-side"
   ],
   "author": {
@@ -25,10 +26,10 @@
     "url": "https://github.com/angular/angular.js/issues"
   },
   "homepage": "http://angularjs.org",
-  "gitHead": "dbd689e8103a6366e53e1f6786727f7c65ccfd75",
-  "_id": "angular@1.4.3",
-  "_shasum": "3af723461789bd0b9fad9d96da25769f207dc1e2",
-  "_from": "angular@latest",
+  "gitHead": "6d34da91a291260d1826c42f163ac21d094cc0fc",
+  "_id": "angular-route@1.4.3",
+  "_shasum": "db0a84d271427261c6b6c24126222f03344b6cb4",
+  "_from": "angular-route@*",
   "_npmVersion": "2.0.2",
   "_nodeVersion": "0.10.26",
   "_npmUser": {
@@ -37,8 +38,8 @@
   },
   "maintainers": [
     {
-      "name": "bclinkinbeard",
-      "email": "ben.clinkinbeard@gmail.com"
+      "name": "mljsimone",
+      "email": "mljsimone@gmail.com"
     },
     {
       "name": "angularcore",
@@ -50,9 +51,9 @@
     }
   ],
   "dist": {
-    "shasum": "3af723461789bd0b9fad9d96da25769f207dc1e2",
-    "tarball": "http://registry.npmjs.org/angular/-/angular-1.4.3.tgz"
+    "shasum": "db0a84d271427261c6b6c24126222f03344b6cb4",
+    "tarball": "http://registry.npmjs.org/angular-route/-/angular-route-1.4.3.tgz"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/angular/-/angular-1.4.3.tgz"
+  "_resolved": "https://registry.npmjs.org/angular-route/-/angular-route-1.4.3.tgz"
 }
