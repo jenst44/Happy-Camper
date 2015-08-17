@@ -59,18 +59,10 @@
         </div>
         <div class="col-xs-12 col-md-5">
             <div class="divBackground">
-                <h3>Supply/Inventory</h3>
-                <ul>
-                    <li>Food Supplies</li>
-                    <li>Drinking Water</li>
-                    <li>Shelter</li>
-                    <li>Equipment</li>
-                    <li>Waste management</li>
-                    <li>Contact info:</li>
-                    <li>Departure:</li>
-                    <li>Party of: </li>
-                    <li>Contact info:</li>
-                </ul>
+                <h3>Supplies Needed</h3>
+                <div ng-repeat="user in TC.trip._user" ng-if="user == TC.user.id">
+                    <h1>Logged in!</h1>
+                </div>
             </div>
         </div>
     </div>
