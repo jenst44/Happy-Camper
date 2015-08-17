@@ -60,8 +60,16 @@
         <div class="col-xs-12 col-md-5">
             <div class="divBackground">
                 <h3>Supplies Needed</h3>
-                <div ng-repeat="user in TC.trip._user" ng-if="user == TC.user.id">
-                    <h1>Logged in!</h1>
+                <div ng-repeat="user in TC.trip._user">
+                    <div ng-if="user == TC.user.id">
+                        <form role="form">
+                            <label for="Item">Item</label>
+                            <input type="text" class="form-control" ng-model="TC.item.type">
+                            <label for="Amount">Amount</label>
+                            <input type="text" class="form-control" ng-model="TC.item.amount">
+                            <button class="btn btn-success" ng-click="TC.addSupplies">Add!</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
